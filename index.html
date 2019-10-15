@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Guess Who!</title>
+  <link rel="stylesheet" href="lib/bootstrap/bootstrap.css" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+
+<body>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel">IM A GENIUS</h1>
+        </div>
+        <div class="modal-body">
+
+            <h2 class="text-center">Look how happy I am</h2>
+            <img src="img/layout/modal.jpg" alt="">
+            <h1 class="text-center">wanna play again?</h1>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">no,im a loser</button>
+            <button type="button" onclick="onRestartGame()" data-dismiss="modal" class="btn btn-primary">AGAIN PLZ</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="my-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <img src="img/layout/loser.jpg" alt="">
+            <h1 class="text-center">plz teach me sensei</h1>
+          </div>
+          <div class="modal-footer">
+            <button type="button" onclick="onRestartGame()" data-dismiss="modal" class="btn btn-secondary">I DONT CARE LET ME PLAY AGAIN</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">OK, I will teach you</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="box">
+    <p class="py-5 text-center">
+      <img class="img-fluid w-75" src="img/layout/title.png" />
+  </header>
+  <main>
+    <section class="game-start mb-auto mt-4">
+      <h1>Think of Someone...</h1>
+      <button onclick="onStartGuessing()" class="btn btn-lg btn-success">Ready!</button>
+    </section>
+    <section class="quest mb-auto mt-5" style="display: none">
+      <h1></h1>
+      <button onclick="onUserResponse('yes')" class="mr-1 btn btn-lg btn-info">Yes</button>
+      <button onclick="onUserResponse('no')" class="btn btn-lg btn-danger">No</button>
+    </section>
+    <section class="new-quest mb-auto mt-5" style="display: none">
+      <h1>Make me smarter!</h1>
+
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="newGuess" class="col-sm-6 control-label">You thought of: </label>
+          <div class="col-sm-12">
+            <input name="newGuess" type="txt" class="form-control" id="newGuess" placeholder="Your Guess" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="newQuest" class="col-sm-6 control-label">Question to differentiate</label>
+          <div class="col-12">
+            <input name="newQuest" type="txt" class="form-control" id="newQuest"
+              placeholder="The answer is YES for yours" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" onclick="onAddGuess();return false;" class="btn btn-info">
+              Make me Smarter!
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="lib/jquery/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="js/quest-utils.js"></script>
+  <script src="js/quest-service.js"></script>
+  <script src="js/quest-controller.js"></script>
+
+</body>
+
+</html>
